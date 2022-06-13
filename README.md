@@ -1,5 +1,5 @@
 # Termo
-Aplicação baseada no jogo Termo desenvolvida durante o evento De Ponta a Ponta, ministrado por Cassio Leite da Code Yourself.
+Aplicação baseada no jogo [Termo](https://term.ooo/) desenvolvida durante o evento De Ponta a Ponta, ministrado por Cassio Leite da Code Yourself.
 
 ## Tecnologias e ferramentas
 - .NET 6
