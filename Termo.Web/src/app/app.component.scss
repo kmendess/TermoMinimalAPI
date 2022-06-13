@@ -1,0 +1,173 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-color: #264653;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-family: Poppins, Helvetica Neue, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FFF;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+.board {
+    width: 344px;
+}
+
+.board-row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.keyboard {
+    width: 656px;
+}
+
+.keyboard-row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 6px;
+
+    .letter {
+        width: 56px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    .enter {
+        width: 184px;
+    }
+}
+
+.keyboard-row-first {
+    margin-right: 24px;
+}
+
+.keyboard-row-second {
+    margin-left: 24px;
+}
+
+.keyboard-row-third {
+    margin-left: 48px;
+}
+
+.letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    font-family: Poppins, Helvetica Neue, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: #FFF;
+    background-color: #132e3b;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.active {
+    border: 4px solid #FFF;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.edit {
+    border-bottom: 10px solid #FFF;
+    box-sizing: border-box;
+}
+
+div[position="1"] {
+    animation-delay: 300ns !important;
+}
+
+div[position="2"] {
+    animation-delay: 600ns !important;
+}
+
+div[position="3"] {
+    animation-delay: 900ns !important;
+}
+
+div[position="4"] {
+    animation-delay: 1200ns !important;
+}
+
+@keyframes flip {
+    0% {
+        background-color: transparent;
+        border: 4px solid #FFF;
+        box-sizing: border-box;
+        transform: perspective(200px) rotateY(0deg);
+    }
+
+    49.99999% {
+        background-color: transparent;
+        border: 4px solid #FFF;
+        box-sizing: border-box;
+        transform: perspective(200px) rotateY(90deg);
+    }
+
+    50% {
+        background-color: var(--color);
+        border: none;
+        transform: perspective(200px) rotateY(-90deg);
+    }
+
+    50.00001% {
+        background-color: var(--color);
+        border: none;
+    }
+
+    100% {
+        background-color: var(--color);
+        border: none;
+        transform: perspective(200px) rotateY(0deg);
+    }
+}
+
+.letter.right {
+    --color: #2a9d8f;
+    animation: 0.5s linear flip 0s forwards;
+}
+
+.letter.place {
+    --color: #f4a261;
+    animation: 0.5s linear flip 0s forwards;
+}
+
+.letter.wrong {
+    --color: #081d27;
+    animation: 0.5s linear flip 0s forwards;
+}
+
+@keyframes changeColor {
+    from {
+        background-color: #132e3b;
+    }
+
+    to {
+        background-color: var(--color);
+    }
+}
+
+div[keyboard-key].place,
+div[keyboard-key].right,
+div[keyboard-key].keyboard-wrong {
+    animation: 0.5s linear changeColor 0s forwards;
+}
